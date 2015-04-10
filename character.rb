@@ -28,14 +28,13 @@ class Character
 	@skill_set
 	
 	def set_ability_scores(arry)
+		puts "strength: #{self.strength}"
 		@strength = arry[0]
 		@dexterity = arry[1]
 		@constitution = arry[2]
 		@intelligence = arry[3]
 		@wisdom = arry[4]
 		@charisma = arry[5]
-		@hit_points
-		@armour_class
 	end
 
 	def set_ability_mods

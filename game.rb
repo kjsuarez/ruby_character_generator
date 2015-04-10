@@ -64,8 +64,11 @@ def generate_six_ability_scores
 end
 
 ancient_thief = Character.new
+scores = generate_six_ability_scores
+puts "scores from game.rb: #{scores}"
+ancient_thief.set_ability_scores(scores)
 
-ancient_thief.set_ability_scores(generate_six_ability_scores)
+=begin
 
 puts "your ability scores:" 
 puts ancient_thief.show_ability_scores
@@ -76,7 +79,7 @@ ancient_thief.set_character_class("wizard")
 
 puts ancient_thief.class.gold
 puts ancient_thief.class.hit_dice
-
+=end
 
 
 
