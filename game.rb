@@ -74,8 +74,8 @@ puts "--picks wizard--"
 
 ancient_thief.set_character_class("wizard")
 
-
-
+puts ancient_thief.class.gold
+puts ancient_thief.class.hit_dice
 
 
 
