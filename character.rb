@@ -5,19 +5,12 @@ class Character
 					 :intelligence, :wisdom, :charisma,
 					 :class
 		
-	@strength = 0		#
-	@dexterity = 0		#
-	@constitution = 0	# based on dice roll
-	@intelligence = 0	#
-	@wisdom = 0			#
-	@charisma = 0		#
-
-	@str_mod			#
-	@dex_mod			#
-	@con_mod			# modifier = (score/2)-5
-	@int_mod			#
-	@wis_mod			#
-	@cha_mod			#
+	@strength = {:score => 0, :mod => 0}		#
+	@dexterity = {:score => 0, :mod => 0}		#
+	@constitution = {:score => 0, :mod => 0}	# based on dice roll
+	@intelligence = {:score => 0, :mod => 0}	#
+	@wisdom = {:score => 0, :mod => 0}			#
+	@charisma = {:score => 0, :mod => 0}		#
 
 	@class 				# player choise 
 	@hit_points			# based on class.hit_dice
@@ -28,13 +21,14 @@ class Character
 	@skill_set
 	
 	def set_ability_scores(arry)
-		puts "strength: #{self.strength}"
-		@strength = arry[0]
-		@dexterity = arry[1]
-		@constitution = arry[2]
-		@intelligence = arry[3]
-		@wisdom = arry[4]
-		@charisma = arry[5]
+		puts "strength: #{@strength}"
+		@strength[:score] = arry[0]
+		puts "it worked"
+		@dexterity[:score] = arry[1]
+		@constitution[:score] = arry[2]
+		@intelligence[:score] = arry[3]
+		@wisdom[:score] = arry[4]
+		@charisma[:score] = arry[5]
 	end
 
 	def set_ability_mods
