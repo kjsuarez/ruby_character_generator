@@ -4,6 +4,7 @@ class Character
 	attr_accessor :strength, :dexterity, :constitution,
 					 :intelligence, :wisdom, :charisma,
 					 :class
+	def initialize()
 		
 	@strength = {:score => 0, :mod => 0}		#
 	@dexterity = {:score => 0, :mod => 0}		#
@@ -19,9 +20,10 @@ class Character
 
 	@weapon_arry = []
 	@skill_set
+	end
 	
 	def set_ability_scores(arry)
-		puts "strength: #{@strength}"
+		#puts "strength: #{@strength}"
 		@strength[:score] = arry[0]
 		puts "it worked"
 		@dexterity[:score] = arry[1]
@@ -59,9 +61,7 @@ class Character
 		puts "wisdom: #{@wisdom}"
 		puts "charisma: #{@charisma}"
 	end
-
 end
-
 
 
 
