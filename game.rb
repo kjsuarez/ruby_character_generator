@@ -1,5 +1,6 @@
 require_relative 'character'
 require_relative 'character_class'
+require_relative 'character_race'
 # roll a d20
 def roll_d20
 	rand(1..20)
@@ -63,23 +64,24 @@ def generate_six_ability_scores
 	return scores
 end
 
-ancient_thief = Character.new
-scores = generate_six_ability_scores
-puts "scores from game.rb: #{scores}"
-ancient_thief.set_ability_scores(scores)
+ancient_thief = Character.new				# initialize a character
 
-#=begin
+scores = generate_six_ability_scores		# roll six ability scores
+puts "scores from game.rb: #{scores}"		#
+ancient_thief.set_ability_scores(scores)	# arbitrairily set those scores (for now)
+			
+puts "--picks human--"						# pick a race
+choice = "human"
+ancient_thief.set_character_race(choice)	# sets race
+puts "race: #{ancient_thief.race}"
 
-puts "your ability scores:" 
-puts ancient_thief.show_ability_scores
 puts "pick your character's class"
 puts "--picks wizard--"
-
 ancient_thief.set_character_class("wizard")
 
-puts ancient_thief.class.gold
-puts ancient_thief.class.hit_dice
-#=end
+
+
+
 
 
 

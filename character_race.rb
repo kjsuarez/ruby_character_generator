@@ -1,4 +1,5 @@
 class CharacterRace
+	attr_accessor :racial_bonuses
 	def initialize()
 		@racial_bonuses = { :strength => 0, :dexterity => 0,
 					 		:constitution => 0, :intelligence => 0,
@@ -23,6 +24,8 @@ class ElfRace
 		# immune to magic sleep.	
 		# +2 saving throw against enchantment spells
 		# +2 on caster level checks to overcome spell resistence
+		
+		## skill buffs
 		# +2 on Spellcraft skill checks made to identify magic items 
 		# +2 on Perception skill checks			  		
 	end		
