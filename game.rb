@@ -69,9 +69,10 @@ ancient_thief = Character.new				# initialize a character
 scores = generate_six_ability_scores		# roll six ability scores
 puts "scores from game.rb: #{scores}"		#
 ancient_thief.set_ability_scores(scores)	# arbitrairily set those scores (for now)
-			
-puts "--picks human--"						# pick a race
-choice = "human"
+	
+choice = "elf"			
+puts "--picks #{choice}--"						# pick a race
+
 ancient_thief.set_character_race(choice)	# sets race
 puts "race: #{ancient_thief.race}"
 
@@ -79,8 +80,8 @@ puts "pick your character's class"
 puts "--picks wizard--"
 ancient_thief.set_character_class("wizard")
 
-
-
+puts "add racial bonuses"
+ancient_thief.add_racial_bonuses
 
 
 

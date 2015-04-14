@@ -1,3 +1,5 @@
+require_relative 'skill_set'
+require_relative 'character'
 class CharacterRace
 	attr_accessor :racial_bonuses
 	def initialize()
@@ -11,7 +13,7 @@ class CharacterRace
 	end		
 end
 
-class ElfRace
+class ElfRace < CharacterRace
 	def initialize()
 		@racial_bonuses = { :strength => 0, :dexterity => 2,
 					 		:constitution => -2, :intelligence => 2,
@@ -29,9 +31,10 @@ class ElfRace
 		# +2 on Spellcraft skill checks made to identify magic items 
 		# +2 on Perception skill checks			  		
 	end		
+
 end
 
-class DwarfRace
+class DwarfRace < CharacterRace
 	def initialize()
 		@racial_bonuses = { :strength => 0, :dexterity => 0,
 					 		:constitution => 2, :intelligence => 0,
@@ -41,13 +44,14 @@ class DwarfRace
 		# languages: speaks common and dwarven, see core rulebook for 
 		# other possible languages.
 		# bonuses:
-		# +1 attack bonus against ork and goblins
+		# +1 attack bonus against orcs and goblins
 		# +2 saving throws against poison and magic			  		
-		# +2 perception checks to unusual stonework
+		## skill buffs
+		# +2 perception checks to 'unusual stonework'
 	end	
 end
 
-class HumanRace
+class HumanRace < CharacterRace
 	def initialize(ability)
 		@racial_bonuses = { :strength => 0, :dexterity => 0,
 					 		:constitution => 0, :intelligence => 0,
@@ -64,7 +68,7 @@ class HumanRace
 	end		
 end
 
-class HalfElfRace
+class HalfElfRace < CharacterRace
 	def initialize(ability)
 		@racial_bonuses = { :strength => 0, :dexterity => 0,
 					 		:constitution => 0, :intelligence => 0,
@@ -82,14 +86,14 @@ class HalfElfRace
 		# for any race related effect
 		
 		# immune to magic sleep
-		# +2 saving throwagainst enchantment spells
+		# +2 saving throw against enchantment spells
 		# +2 bonus on Perception skill checks
 		# 'multitalented'-- see core rulebook pg 24,
 		# this shit is complicated.					  				
 	end		
 end
 
-class HalfOrcRace
+class HalfOrcRace < CharacterRace
 	def initialize(ability)
 		@racial_bonuses = { :strength => 0, :dexterity => 0,
 					 		:constitution => 0, :intelligence => 0,
@@ -112,7 +116,7 @@ class HalfOrcRace
 	end		
 end
 
-class HalflingRace
+class HalflingRace < CharacterRace
 	def initialize()
 		@racial_bonuses = { :strength => -2, :dexterity => 2,
 					 		:constitution => 0, :intelligence => 0,
@@ -128,11 +132,10 @@ class HalflingRace
 		# +2 on Perception skill checks
 		# +2 on Climb and Acrobatics skill checks
 		# 
-
 	end		
 end
 
-class GnomeRace
+class GnomeRace < CharacterRace
 	def initialize()
 		@racial_bonuses = { :strength => -2, :dexterity => 0,
 					 		:constitution => 2, :intelligence => 0,
