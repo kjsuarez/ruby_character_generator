@@ -91,6 +91,7 @@ class Character
 		else
 			puts "well shit"
 		end
+		add_racial_bonuses
 	end
 
 	def set_character_class(job)
@@ -121,6 +122,8 @@ class Character
 		@intelligence[:score] += @race.racial_bonuses[:intelligence]
 		@wisdom[:score] += @race.racial_bonuses[:wisdom]
 		@charisma[:score] += @race.racial_bonuses[:charisma]
+
+		update_ability_modifiers
 	end
 
 

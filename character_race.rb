@@ -9,8 +9,9 @@ class CharacterRace
 		#size
 		#vision
 		#languages
-		#bonuses: skills, attack-rolls, saving throws			  		
+		#bonuses: skills, attack-rolls, saving throws		
 	end		
+
 end
 
 class ElfRace < CharacterRace
@@ -28,10 +29,13 @@ class ElfRace < CharacterRace
 		# +2 on caster level checks to overcome spell resistence
 		
 		## skill buffs
-		# +2 on Spellcraft skill checks made to identify magic items 
-		# +2 on Perception skill checks			  		
+		# +2 on Spellcraft skill checks made to identify magic items
+		# +2 on Perception skill checks 					  		
 	end		
 
+	def skill_bonuses
+		race_bonuses = {:skill => :perception, :value => 2}	
+	end
 end
 
 class DwarfRace < CharacterRace

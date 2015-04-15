@@ -1,6 +1,7 @@
 require_relative 'character'
 require_relative 'character_class'
 require_relative 'character_race'
+require_relative 'skill_set'
 # roll a d20
 def roll_d20
 	rand(1..20)
@@ -63,15 +64,19 @@ def generate_six_ability_scores
 	end
 	return scores
 end
+##############################################################################
 
 ancient_thief = Character.new				# initialize a character
 
 scores = generate_six_ability_scores		# roll six ability scores
 puts "scores from game.rb: #{scores}"		#
 ancient_thief.set_ability_scores(scores)	# arbitrairily set those scores (for now)
+
+puts "\nability scores: "
+puts "#{ancient_thief.show_ability_scores}"
 	
 choice = "elf"			
-puts "--picks #{choice}--"						# pick a race
+puts "--picks #{choice}--"					# pick a race
 
 ancient_thief.set_character_race(choice)	# sets race
 puts "race: #{ancient_thief.race}"
@@ -80,13 +85,17 @@ puts "pick your character's class"
 puts "--picks wizard--"
 ancient_thief.set_character_class("wizard")
 
-puts "add racial bonuses"
-ancient_thief.add_racial_bonuses
+puts "\nadd racial bonuses"
+puts "new ability scores: "
+puts "#{ancient_thief.show_ability_scores}"
 
-
-
-
-
+puts "race bonues:"
+puts ancient_thief.race.skill_bonuses
+skill = ancient_thief.race.skill_bonuses[:skill]
+value = ancient_thief.race.skill_bonuses[:value]
+ancient_thief.skill_set.update_racial_bonuses(skill, value)
+puts "skills"
+puts ancient_thief.skill_set.show_skills
 
 
 
