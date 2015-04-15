@@ -169,7 +169,7 @@ class SkillSet
 
 	def show_skills
 		puts "perception: #{@skills[:perception][:race_bonus]}"
-
+		puts "spellcraft: #{@skills[:spellcraft][:race_bonus]}"
 	end
 
 	def update_racial_bonuses(skill, bonus)

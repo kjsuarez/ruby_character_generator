@@ -34,7 +34,8 @@ class ElfRace < CharacterRace
 	end		
 
 	def skill_bonuses
-		race_bonuses = {:skill => :perception, :value => 2}	
+		race_bonuses = [{:skill => :perception, :value => 2},
+						 {:skill => :spellcraft, :value => 2}]	
 	end
 end
 
@@ -53,6 +54,11 @@ class DwarfRace < CharacterRace
 		## skill buffs
 		# +2 perception checks to 'unusual stonework'
 	end	
+
+	def skill_bonuses
+		race_bonuses = [{:skill => :perception, :value => 2},
+						 {:skill => :spellcraft, :value => 2}]	
+	end	
 end
 
 class HumanRace < CharacterRace
@@ -69,7 +75,12 @@ class HumanRace < CharacterRace
 		#bonuses:	
 		# Humans gain an additional skill rank at
 		# first level and at every other level.				  			
-	end		
+	end
+
+	def skill_bonuses
+		race_bonuses = [{:skill => :perception, :value => 2},
+						 {:skill => :spellcraft, :value => 2}]	
+	end			
 end
 
 class HalfElfRace < CharacterRace
@@ -94,7 +105,12 @@ class HalfElfRace < CharacterRace
 		# +2 bonus on Perception skill checks
 		# 'multitalented'-- see core rulebook pg 24,
 		# this shit is complicated.					  				
-	end		
+	end
+
+	def skill_bonuses
+		race_bonuses = [{:skill => :perception, :value => 2},
+						 {:skill => :spellcraft, :value => 2}]	
+	end			
 end
 
 class HalfOrcRace < CharacterRace
@@ -117,7 +133,12 @@ class HalfOrcRace < CharacterRace
 		# Once per day a half-orc brought 
 		# below 0 hitpoints but not killed 
 		# can fight for 1 more round as if disabled.  	 			  			
-	end		
+	end
+
+	def skill_bonuses
+		race_bonuses = [{:skill => :perception, :value => 2},
+						 {:skill => :spellcraft, :value => 2}]	
+	end			
 end
 
 class HalflingRace < CharacterRace
@@ -136,6 +157,12 @@ class HalflingRace < CharacterRace
 		# +2 on Perception skill checks
 		# +2 on Climb and Acrobatics skill checks
 		# 
+	end	
+
+	def skill_bonuses
+		race_bonuses = [{:skill => :perception, :value => 2},
+						 {:skill => :climb, :value => 2},
+						{:skill => :acrobatics, :value => 2}]	
 	end		
 end
 
@@ -155,7 +182,31 @@ class GnomeRace < CharacterRace
 		# +2 saving throw against illusion spells
 		# +2 on Perception skill checks
 		# +2 on a craft or profession skill of their choice		  			
-	end		
+	end
+
+	def pick_skill
+		puts "you've got a choice of skills to buff,"
+		puts "either craft, or profession"
+		choice = gets.to_sym
+		pass = false
+		while pass == false 
+			if choice == :craft
+				choice = :craft1
+				pass = true
+			elsif choice == :profession
+				pass = true	
+			else
+				puts "you have to pick craft or profession"
+			end
+		end
+		return choice
+	end
+
+	def skill_bonuses
+		choice = pick_skill
+		race_bonuses = [{:skill => :perception, :value => 2},
+						 {:skill => choice, :value => 2}]
+	end			
 end
 
 

@@ -113,7 +113,16 @@ class Character
 		puts "charisma: #{@charisma}"
 	end
 
-
+	def race_skill_buffs
+		bonuses = @race.skill_bonuses
+		count = 0
+		while count < bonuses.length
+			skill = bonuses[count][:skill]
+			value = bonuses[count][:value]
+			@skill_set.update_racial_bonuses(skill, value)
+			count+=1
+		end
+	end
 
 	def add_racial_bonuses		
 		@strength[:score] += @race.racial_bonuses[:strength]
@@ -124,9 +133,11 @@ class Character
 		@charisma[:score] += @race.racial_bonuses[:charisma]
 
 		update_ability_modifiers
+		race_skill_buffs
 	end
 
 
+	
 
 end
 
