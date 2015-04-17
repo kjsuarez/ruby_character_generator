@@ -92,8 +92,6 @@ puts "#{ancient_thief.show_ability_scores}"
 puts "race bonus:"
 puts ancient_thief.race.skill_bonuses
 
-skill = ancient_thief.race.skill_bonuses
-#ancient_thief.skill_set.update_racial_bonuses(skill, value)
 puts "skills"
 puts ancient_thief.skill_set.show_skills
 

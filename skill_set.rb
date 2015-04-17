@@ -1,5 +1,5 @@
 class SkillSet
-	attr_accessor :ranks, :acrobatics, :climb
+	attr_accessor :ranks, :skills
 
 
 	def initialize()
@@ -168,18 +168,18 @@ class SkillSet
 	end
 
 	def show_skills
-		puts "perception: #{@skills[:perception][:race_bonus]}"
-		puts "spellcraft: #{@skills[:spellcraft][:race_bonus]}"
+		puts "perception: #{@skills[:perception]}" #wisdom
+		puts "spellcraft: #{@skills[:spellcraft]}" #intelligence
+		puts "climb: #{@skills[:climb]}"		   #strength
+		puts "stealth: #{@skills[:stealth]}"	   #dexterity
+		puts "intimidate: #{@skills[:intimidate]}" #charisma
 	end
 
 	def update_racial_bonuses(skill, bonus)
 		@skills[skill][:race_bonus] = bonus	
 	end
 end
-skillz = SkillSet.new
-skill = :acrobatics
-skillz.update_racial_bonuses(skill, 5)
-skillz.show_skills
+
 
 
 

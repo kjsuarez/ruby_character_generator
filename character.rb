@@ -27,8 +27,8 @@ class Character
 		@skill_set = SkillSet.new
 	end
 	
-	def score_to_mod(score)
-		modifier = (score/2)-5
+	def score_to_mod(score)  	# the formula that derives ability
+		modifier = (score/2)-5 	# modifier from ability score
 		return modifier
 	end
 
@@ -40,6 +40,36 @@ class Character
 		@wisdom[:mod] = score_to_mod(@wisdom[:score])
 		@charisma[:mod] = score_to_mod(@charisma[:score])	
 	end	
+
+	def update_skill_mods
+		update_ability_modifiers
+
+		 skill_hash = @skill_set.skills 
+		skill_arry = skill_hash.to_a
+		count = 0
+
+		while count < skill_arry.length
+			
+			if skill_arry[count][1][:related_ability] == "Dexterity"
+				skill_arry[count][1][:ability_mod] = @dexterity[:mod]
+	
+				elsif skill_arry[count][1][:related_ability] == "Strength"
+					skill_arry[count][1][:ability_mod] = @strength[:mod]		
+				
+				elsif skill_arry[count][1][:related_ability] == "Wisdom"
+					skill_arry[count][1][:ability_mod] = @wisdom[:mod]
+				
+				elsif skill_arry[count][1][:related_ability] == "Intelligence"
+					skill_arry[count][1][:ability_mod] = @intelligence[:mod]	
+
+				elsif skill_arry[count][1][:related_ability] == "Charisma"
+					skill_arry[count][1][:ability_mod] = @charisma[:mod]		
+			end
+			count+=1
+		end
+
+		@skill_set.skills = Hash[skill_arry]
+	end		
 
 	def set_ability_scores(arry)
 		@strength[:score] = arry[0]		
@@ -54,7 +84,7 @@ class Character
 
 
 
-	def pick_ability
+	def pick_ability  # some races require that you choose an ability to buff
 		puts "Yo so this race requiers you to pick an ability to buff"
 		puts "pick an ability: \nstrength \ndexteriry \nconstitution"
 		puts "intelligence \nwisdom \ncharisma"
@@ -92,6 +122,7 @@ class Character
 			puts "well shit"
 		end
 		add_racial_bonuses
+		update_skill_mods
 	end
 
 	def set_character_class(job)
@@ -136,8 +167,6 @@ class Character
 		race_skill_buffs
 	end
 
-
-	
 
 end
 

@@ -16,6 +16,7 @@ end
 
 class ElfRace < CharacterRace
 	def initialize()
+		@classification = :elf
 		@racial_bonuses = { :strength => 0, :dexterity => 2,
 					 		:constitution => -2, :intelligence => 2,
 					  		:wisdom => 0, :charisma => 0 }		
@@ -41,6 +42,7 @@ end
 
 class DwarfRace < CharacterRace
 	def initialize()
+		@classification = :dwarf
 		@racial_bonuses = { :strength => 0, :dexterity => 0,
 					 		:constitution => 2, :intelligence => 0,
 					  		:wisdom => 2, :charisma => -2 }	
@@ -63,6 +65,7 @@ end
 
 class HumanRace < CharacterRace
 	def initialize(ability)
+		@classification = :human
 		@racial_bonuses = { :strength => 0, :dexterity => 0,
 					 		:constitution => 0, :intelligence => 0,
 					  		:wisdom => 0, :charisma => 0 }
@@ -74,16 +77,13 @@ class HumanRace < CharacterRace
 		# other possible languages.
 		#bonuses:	
 		# Humans gain an additional skill rank at
-		# first level and at every other level.				  			
-	end
-
-	def skill_bonuses
-		race_bonuses = [{:skill => :perception, :value => 2},
-						 {:skill => :spellcraft, :value => 2}]	
-	end			
+		# first level and at every other level.	
+		#			  			
+	end		
 end
 
 class HalfElfRace < CharacterRace
+	@classification = :human || :elf
 	def initialize(ability)
 		@racial_bonuses = { :strength => 0, :dexterity => 0,
 					 		:constitution => 0, :intelligence => 0,
@@ -108,13 +108,13 @@ class HalfElfRace < CharacterRace
 	end
 
 	def skill_bonuses
-		race_bonuses = [{:skill => :perception, :value => 2},
-						 {:skill => :spellcraft, :value => 2}]	
+		race_bonuses = [{:skill => :perception, :value => 2}]	
 	end			
 end
 
 class HalfOrcRace < CharacterRace
 	def initialize(ability)
+		@classification = :human || :orc
 		@racial_bonuses = { :strength => 0, :dexterity => 0,
 					 		:constitution => 0, :intelligence => 0,
 					  		:wisdom => 0, :charisma => 0 }
@@ -136,13 +136,14 @@ class HalfOrcRace < CharacterRace
 	end
 
 	def skill_bonuses
-		race_bonuses = [{:skill => :perception, :value => 2},
+		race_bonuses = [{:skill => :intimidate, :value => 2},
 						 {:skill => :spellcraft, :value => 2}]	
 	end			
 end
 
 class HalflingRace < CharacterRace
 	def initialize()
+		@classification = :halfling
 		@racial_bonuses = { :strength => -2, :dexterity => 2,
 					 		:constitution => 0, :intelligence => 0,
 					  		:wisdom => 0, :charisma => 2 }		  					  			
@@ -154,9 +155,9 @@ class HalflingRace < CharacterRace
 		# bonuses:	
 		# +2 on saving throws against Fear (stacks with halfling-luck)
 		# +1 on all saving throws
+		###
 		# +2 on Perception skill checks
 		# +2 on Climb and Acrobatics skill checks
-		# 
 	end	
 
 	def skill_bonuses
@@ -168,6 +169,7 @@ end
 
 class GnomeRace < CharacterRace
 	def initialize()
+		@classification = :gnome
 		@racial_bonuses = { :strength => -2, :dexterity => 0,
 					 		:constitution => 2, :intelligence => 0,
 					  		:wisdom => 0, :charisma => 2 }	
@@ -180,6 +182,7 @@ class GnomeRace < CharacterRace
 		# Gnome magic-- see core rulebook pg 23, this shit is complicated.
 		# +1 on attackrolls against reptiles and goblins
 		# +2 saving throw against illusion spells
+		###
 		# +2 on Perception skill checks
 		# +2 on a craft or profession skill of their choice		  			
 	end
