@@ -1,6 +1,7 @@
 require_relative 'character_race'
 require_relative 'character_class'
 require_relative 'skill_set'
+require_relative 'class_level'
 
 class Character
 	attr_accessor :strength, :dexterity, :constitution,
