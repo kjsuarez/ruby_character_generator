@@ -1,7 +1,6 @@
 class ClassLevel
 	attr_accessor :level_table, :test
 	def initialize()
-		@test = "moo"
 		@level_table
 	end		
 end

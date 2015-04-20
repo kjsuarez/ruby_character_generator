@@ -1,5 +1,6 @@
 require_relative 'skill_set'
 require_relative 'character'
+
 class CharacterRace
 	attr_accessor :racial_bonuses
 	def initialize()

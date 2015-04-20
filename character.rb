@@ -134,6 +134,7 @@ class Character
 		else
 			puts "class selection error"
 		end
+		@class.initiate_character_class_attributes
 	end
 
 	def show_ability_scores
