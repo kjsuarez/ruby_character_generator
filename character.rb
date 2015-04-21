@@ -72,6 +72,18 @@ class Character
 		@skill_set.skills = Hash[skill_arry]
 	end		
 
+	def set_class_skills
+		class_skills = @class.class_skills  # [:appraise, :craft1, :fly]
+		skill_hash = @skill_set.skills 		# {:acrobatics => { :skill_name => "Acrobatics", :Total_bonus => nil}}
+		count = 0
+		while count < class_skills.length
+			class_skill = class_skills[count]
+			skill_hash[class_skill][:class_skill_bonus] = 3
+			count+=1
+		end
+
+	end
+
 	def set_ability_scores(arry)
 		@strength[:score] = arry[0]		
 		@dexterity[:score] = arry[1]

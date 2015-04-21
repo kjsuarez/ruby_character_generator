@@ -3,7 +3,7 @@ require_relative 'class_level'
 class CharacterClass
 	attr_accessor  :level, :saves, :ref_save, :fort_save, :will_save, 
 				   :hit_dice, :hp, :gold, :feats,
-				   :level_table,:base_attack_bonus
+				   :level_table,:base_attack_bonus, :class_skills
 				   	
 	
 	def initialize()
@@ -17,7 +17,8 @@ class CharacterClass
 		@gold
 		@feats
 		@level_table = Class_level.new
-		@base_attack_bonus 	
+		@base_attack_bonus 
+		@class_skills 	
 	end
 
 	def update_hp						# used when leveling up 
@@ -67,6 +68,11 @@ class WizardClass < CharacterClass
 		@gold = 1000
 		@feats
 		@level_table = WizardLevel.new
+		@class_skills = [:appraise, :craft1, :fly,
+		 :knowledge_arcana, :knowledge_dungeoneering, :knowledge_engineering,
+		 :knowledge_geography, :knowledge_history, :knowledge_local, :knowledge_nature,
+		 :knowledge_nobility, :knowledge_planes, :knowledge_religion, :linguistics,
+		 :profession1, :spellcraft]
 	end
 end
 

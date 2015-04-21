@@ -80,6 +80,8 @@ puts "pick your character's class"
 puts "--picks wizard--"
 ancient_thief.set_character_class("wizard")
 
+ancient_thief.set_class_skills
+puts "appraise #{ancient_thief.skill_set.skills[:appraise]}"
 
 
 
