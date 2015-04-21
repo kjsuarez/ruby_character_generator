@@ -3,7 +3,7 @@ require_relative 'class_level'
 class CharacterClass
 	attr_accessor  :level, :saves, :ref_save, :fort_save, :will_save, 
 				   :hit_dice, :hp, :gold, :feats,
-				   :level_table,:base_attack_bonus, :class_skills
+				   :level_table,:base_attack_bonus, :class_skills, :pre_int_mod_ranks
 				   	
 	
 	def initialize()
@@ -18,7 +18,8 @@ class CharacterClass
 		@feats
 		@level_table = Class_level.new
 		@base_attack_bonus 
-		@class_skills 	
+		@class_skills 
+		@pre_int_mod_ranks 	
 	end
 
 	def update_hp						# used when leveling up 
@@ -73,6 +74,7 @@ class WizardClass < CharacterClass
 		 :knowledge_geography, :knowledge_history, :knowledge_local, :knowledge_nature,
 		 :knowledge_nobility, :knowledge_planes, :knowledge_religion, :linguistics,
 		 :profession1, :spellcraft]
+		@pre_int_mod_ranks = 2 
 	end
 end
 
@@ -85,6 +87,10 @@ class WarriorClass < CharacterClass
 		@gold = 1200
 		@feats
 		@level_table = FighterLevel.new
+		@class_skills = [ :climb, :craft1, :handle_animal, :intimidate,
+						  :knowledge_dungeoneering, :knowledge_engineering,
+						  :profession1, :ride, :survival, :swim ]
+		@pre_int_mod_ranks = 2 				  
 	end		
 end
 
@@ -97,6 +103,11 @@ class RangerClass < CharacterClass
 		@gold = 850
 		@feats
 		@level_table = RangerLevel.new
+		@class_skills = [ :climb, :craft1, :handle_animal,
+						  :heal, :intimidate, :knowledge_dungeoneering,
+						  :knowledge_geography, :knowledge_nature, :perception,
+						  :profession1, :ride, :spellcraft, :stealth, :survival, :swim ]
+		@pre_int_mod_ranks = 6				  
 	end		
 end
 

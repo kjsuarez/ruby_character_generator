@@ -147,9 +147,11 @@ class Character
 			puts "class selection error"
 		end
 		@class.initiate_character_class_attributes
+		update_skill_ranks
 	end
 
 	def show_ability_scores
+		update_ability_modifiers
 		puts "strength: #{@strength}"
 		puts "dexterity: #{@dexterity}"
 		puts "constitution: #{@constitution}"
@@ -181,7 +183,10 @@ class Character
 		race_skill_buffs
 	end
 
-
+	def update_skill_ranks
+		update_ability_modifiers
+		@skill_set.ranks = @skill_set.ranks + @intelligence[:mod] + @class.pre_int_mod_ranks
+	end
 end
 
 

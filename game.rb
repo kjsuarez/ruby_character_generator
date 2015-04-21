@@ -83,7 +83,8 @@ ancient_thief.set_character_class("wizard")
 ancient_thief.set_class_skills
 puts "appraise #{ancient_thief.skill_set.skills[:appraise]}"
 
-
+ancient_thief.show_ability_scores
+puts "available ranks: #{ancient_thief.skill_set.ranks}"
 
 
 

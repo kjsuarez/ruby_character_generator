@@ -3,7 +3,7 @@ class SkillSet
 
 
 	def initialize()
-		@ranks
+		@ranks = 0
 
 		@skills = {
 
@@ -162,7 +162,15 @@ class SkillSet
 
 			:stealth => { :skill_name => "Stealth", :Total_bonus => nil,
 				 :related_ability => "Dexterity",
-				  :ability_mod => nil, :ranks => nil, :race_bonus => nil, :class_skill_bonus => nil }     	  	  
+				  :ability_mod => nil, :ranks => nil, :race_bonus => nil, :class_skill_bonus => nil },
+
+			:survival => { :skill_name => "Survival", :Total_bonus => nil,
+				 :related_ability => "Wisdom",
+				  :ability_mod => nil, :ranks => nil, :race_bonus => nil, :class_skill_bonus => nil },
+
+			:swim => { :skill_name => "Swim", :Total_bonus => nil,
+				 :related_ability => "Strength",
+				  :ability_mod => nil, :ranks => nil, :race_bonus => nil, :class_skill_bonus => nil }	  	       	  	  
 
 		}
 	end
